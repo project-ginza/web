@@ -1,0 +1,23 @@
+version: "3.7" # 파일 규격 버전
+services:
+  client:
+    container_name: ginza-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - "/app/node_modules"
+      - "./:/app"
+  ngrok:
+    container_name: ginza-ngrok
+    image: wernight/ngrok:latest
+    ports:
+      - "4040:4040"
+    environment:
+      NGROK_PROTOCOL: http
+      NGROK_PORT: client:3000
+      NGROK_AUTH: ${NGROK_AUTHTOKEN}
+    depends_on:
+      - client
