@@ -18,3 +18,9 @@ https://dashboard.ngrok.com/get-started/setup
 * > docker-compose up -d 후 
 localhost:4040 들어가면 임의로 생성되는 ngrok 주소로 접속해볼 수 있습니다. 
 * > 예시) https://aaaa-255-255-255-255.ngrok.io
+
+### package info
+* > https://www.npmjs.com/package/zustand/v/3.7.1
+* > https://www.npmjs.com/package/immer/v/9.0.12
+* > https://www.npmjs.com/package/@mui/material/v/5.5.2
+* > https://www.npmjs.com/package/react-router-dom/v/6.2.2
