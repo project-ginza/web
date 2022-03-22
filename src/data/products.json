@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "category": "GIFT SET",
+    "name": "NONFICTION Best Gift Set",
+    "size": "300ml / 50ml",
+    "price": 125000,
+    "desc": "4종의 바디 및 핸드케어 제품으로 구성한 베스트기프트 세트입니다. 논픽션이 제안하는 매칭을 통해 내면의 영감을 일깨우는 데일리 케어의 세계를 경험해 보세요",
+    "image": "https://nonfiction.kr/web/product/medium/202201/67620f41087125fdfb5591350ae018dc.jpg",
+    "additional": {
+      "detail": "<p> 용량 또는 중량: 바디워시 - 300ml <br>  바디로션 - 300ml </P>"
+    }
+  },
+  {
+    "id": 2,
+    "category": "GIFT SET",
+    "name": "NONFICTION Best Gift Set",
+    "size": "300ml / 50ml",
+    "price": 125000,
+    "desc": "4종의 바디 및 핸드케어 제품으로 구성한 베스트기프트 세트입니다. 논픽션이 제안하는 매칭을 통해 내면의 영감을 일깨우는 데일리 케어의 세계를 경험해 보세요",
+    "image":"https://nonfiction.kr/web/product/medium/202111/537fa60d7aa9e283e72f16cb13f873ac.jpg",
+    "additional": {
+      "detail": "<p> 용량 또는 중량: 바디워시 - 300ml <br>  바디로션 - 300ml </P>"
+    }
+  },
+  {
+    "id": 3,
+    "category": "GIFT SET",
+    "name": "NONFICTION Best Gift Set",
+    "size": "300ml / 50ml",
+    "price": 125000,
+    "desc": "4종의 바디 및 핸드케어 제품으로 구성한 베스트기프트 세트입니다. 논픽션이 제안하는 매칭을 통해 내면의 영감을 일깨우는 데일리 케어의 세계를 경험해 보세요",
+    "image":"https://nonfiction.kr/web/product/medium/202111/dabc33e9a36f129925ac89ffa820a8b7.jpg",
+    "additional": {
+      "detail": "<p> 용량 또는 중량: 바디워시 - 300ml <br>  바디로션 - 300ml </P>"
+    }
+  },
+  {
+    "id": 4,
+    "category": "GIFT SET",
+    "name": "NONFICTION Best Gift Set",
+    "size": "300ml / 50ml",
+    "price": 125000,
+    "desc": "4종의 바디 및 핸드케어 제품으로 구성한 베스트기프트 세트입니다. 논픽션이 제안하는 매칭을 통해 내면의 영감을 일깨우는 데일리 케어의 세계를 경험해 보세요",
+    "image":"https://nonfiction.kr/web/product/medium/202111/45bbefd6d3935066a679660c9cf82ec8.jpg",
+    "additional": {
+      "detail": "<p> 용량 또는 중량: 바디워시 - 300ml <br>  바디로션 - 300ml </P>"
+    }
+  }
+
+]
