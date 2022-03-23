@@ -1,12 +1,12 @@
-import React, { memo } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { memo, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
-import ProductComponent from "./components/ProductComponent";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createCustomTheme } from "./theme";
 
 const App: React.FC<{}> = memo(() => {
+  
   const theme = createCustomTheme({
     responsiveFontSizes: true,
   });
