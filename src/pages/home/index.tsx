@@ -1,34 +1,33 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import products from "../../data/products.json";
 import useStore from "../../store";
 import { Container, Button } from "@mui/material";
+import { useScrollPosition, ScrollProps } from "../../hooks/useScrollPosition";
 
 const HomePage = () => {
   const store = useStore();
   const [rad, setRad] = React.useState(0);
+  useScrollPosition(({ prevPos, currPos }: ScrollProps) => {
+    const isChange = currPos?.y !== prevPos?.y;
+    if (isChange) setRad(-currPos.y / 600 % Math.PI);
 
-  const scrollHandler = (event: React.UIEvent<HTMLDivElement>) => {
-    const containerHeight = event.currentTarget.clientHeight;
+  }, [rad]);
 
-    const scrollHeight = event.currentTarget.scrollHeight;
-
-    const scrollTop = event.currentTarget.scrollTop;
-    setRad(((scrollTop + containerHeight) / scrollHeight) * 360);
-  }
   useEffect(() => {
     console.log(store.counter);
     store.addCounter();
+    
   }, []);
 
 
 
 
-  return (
+  return useMemo(() => (
 
-    <div style={styles.container} onScroll={scrollHandler} >
+    <div>
       <div style={styles.center_logo}>
-        <div style={styles.center_logo_inner} >
+        <div style={styles.center_logo_inner}>
           <Link to="/" >
             <img src="/images/full_logo.svg" alt="Non_Fiction_Store" style={{ transform: `rotate(${rad}rad)` }} />
           </Link>
@@ -39,7 +38,7 @@ const HomePage = () => {
       <Container style={styles.page}>
         {products.map((product) => (
           <Button key={product.id}>
-            <Link to={`/product/${product.id}`} style={styles.center_logo_a}>
+            <Link to={`/product/${product.id}`}>
               <img
                 src={product.image}
                 alt={product.name}
@@ -56,7 +55,7 @@ const HomePage = () => {
       </div>
     </div >
 
-  );
+  ), [rad]);
 };
 
 const styles = {
@@ -69,7 +68,7 @@ const styles = {
   },
   center_logo: {
     position: "fixed",
-    top: "50%",
+    top: "20%",
     left: "40%",
     zIndex: 55,
   },
@@ -84,13 +83,10 @@ const styles = {
     textDecoration: "none",
     outline: "none",
     display: "inline-block",
-    PointerEvent: "none",
   },
   page: {
     position: "relative",
-    top: "10vh",
-    bottom: "20033vh",
-    PointerEvents: "none"
+    top: "10vh"
   },
   footer: {
     position: "relative",
@@ -100,7 +96,6 @@ const styles = {
     top: "2000px",
 
   }
-
 } as const
 
 export default HomePage;
