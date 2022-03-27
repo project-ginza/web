@@ -14,4 +14,13 @@ pipeline {
         '''
     }
   }
+  stages {
+    stage('Run maven'){
+      steps {
+        containers('maven') {
+          sh 'mvn -version'
+        }
+      }
+    }
+  }
 }
