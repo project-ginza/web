@@ -1,5 +1,4 @@
-pipeline {
-  agent any
+node {
   stage('test pipeline') {
     sh (script:"""
       echo "hello"
