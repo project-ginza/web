@@ -1,6 +1,5 @@
 pipeline {
-  agent kubernetes
-  
+  agent any
   stage('test pipeline') {
     sh (script:"""
       echo "hello"
