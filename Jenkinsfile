@@ -31,7 +31,7 @@ pipeline {
     stage('restart container'){
       steps {
         container('kaniko-pg-web') {
-          echo 'hello'
+          sleep 300
         }
       }
     }
