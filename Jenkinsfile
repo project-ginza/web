@@ -24,25 +24,13 @@ pipeline {
                 items:
                   - key: .dockerconfigjson
                     path: config.json
-          ---
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: pod-pg-web
-            namespace: pg-dev
-            labels:
-              category: pg-web
-          spec:
-            containers:
-            - name: container
-              image: mgood2/pg-web
         '''
     }
   }
   stages {
     stage('restart container'){
       steps {
-        container('container') {
+        container('kaniko-pg-web') {
           echo 'hello'
         }
       }
