@@ -1,9 +1,17 @@
+<<<<<<< Updated upstream
 import React, { useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import products from "../../data/products.json";
 import useStore from "../../store";
 import { Container, Button } from "@mui/material";
 import { useScrollPosition, ScrollProps } from "../../hooks/useScrollPosition";
+=======
+import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
+import products from "../../data/products.json";
+import useStore from "../../store";
+import {Container, Button} from "@mui/material";
+>>>>>>> Stashed changes
 
 const HomePage = () => {
   const store = useStore();
@@ -26,6 +34,7 @@ const HomePage = () => {
   return useMemo(() => (
 
     <div>
+<<<<<<< Updated upstream
       <div style={styles.center_logo}>
         <div style={styles.center_logo_inner}>
           <Link to="/" >
@@ -37,6 +46,10 @@ const HomePage = () => {
 
       <Container style={styles.page}>
         {products.map((product) => (
+=======
+      <Container>
+        {products.map(product => (
+>>>>>>> Stashed changes
           <Button key={product.id}>
             <Link to={`/product/${product.id}`}>
               <img
