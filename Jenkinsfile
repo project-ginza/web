@@ -18,7 +18,7 @@ pipeline {
                 withKubeCredentials([
                     [credentialsId: 'jenkins-robot', serverUrl: 'https://192.168.4.130:16443', namespace:'pg-dev']
                     ]){
-                    sh './kubectl apply -f wep.yaml'
+                    sh './kubectl apply -f web.yaml'
                 }
             }
         }
