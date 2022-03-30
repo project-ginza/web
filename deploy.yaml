@@ -6,7 +6,7 @@ metadata:
 sepc:
   selector:
     matchLabels:
-      type: web
+      category: pg-web
   replicas: 1
   strategy:
     type: Recreate
@@ -14,8 +14,8 @@ sepc:
   template:
     metadata:
       labels:
-        type: app
+        category: pg-web
     spec:
       containers:
-      - name: pg-web
+      - name: container
         image: mgood2/web
