@@ -18,4 +18,4 @@ spec:
     spec:
       containers:
       - name: container
-        image: mgood2/web
+        image: mgood2/pg-web
