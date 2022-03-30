@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pg-deployment-web
+  namespace: pg-dev
+sepc:
+  selector:
+    matchLabels:
+      type: web
+  replicas: 1
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 1
+  template:
+    metadata:
+      labels:
+        type: app
+    spec:
+      containers:
+      - name: pg-web
+        image: mgood2/web
