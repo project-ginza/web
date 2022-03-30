@@ -17,7 +17,6 @@ const App: React.FC<{}> = memo(() => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="product/:productId" element={<ProductPage />}></Route>
-          <Route path="*" element={<div>404</div>} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
