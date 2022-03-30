@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pg-deployment-web
   namespace: pg-dev
-sepc:
+spec:
   selector:
     matchLabels:
       category: pg-web
