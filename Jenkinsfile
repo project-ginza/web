@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages{
-        stage('build with kinako'){
+        stage('build with kaniko'){
             steps {
                 withKubeCredentials([
                     [credentialsId: 'jenkins-robot', namespace:'pg-dev']
