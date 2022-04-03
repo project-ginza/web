@@ -24,34 +24,43 @@ const HomePage = () => {
   return useMemo(
     () => (
       <div>
-        <div style={styles.center_logo}>
-          <div style={styles.center_logo_inner}>
-            <Link to="/">
-              <img
-                src="/images/full_logo.svg"
-                alt="Non_Fiction_Store"
-                style={{transform: `rotate(${rad}rad)`}}
-              />
-            </Link>
-          </div>
+        <div>
+          navbar
+          <Link to="/login">Login</Link>
         </div>
+        
 
-        <Container>
-          {products.map(product => (
-            <Button key={product.id}>
-              <Link to={`/product/${product.id}`}>
+      
+        <div>
+          <div style={styles.center_logo}>
+            <div style={styles.center_logo_inner}>
+              <Link to="/">
                 <img
-                  src={product.image}
-                  alt={product.name}
-                  height="200"
-                  width="200"
+                  src="/images/full_logo.svg"
+                  alt="Non_Fiction_Store"
+                  style={{transform: `rotate(${rad}rad)`}}
                 />
               </Link>
-            </Button>
-          ))}
-        </Container>
+            </div>
+          </div>
 
-        <div style={styles.footer}>footer</div>
+          <Container>
+            {products.map(product => (
+              <Button key={product.id}>
+                <Link to={`/product/${product.id}`}>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    height="200"
+                    width="200"
+                  />
+                </Link>
+              </Button>
+            ))}
+          </Container>
+
+          <div style={styles.footer}>footer</div>
+        </div>
       </div>
     ),
     [rad]

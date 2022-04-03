@@ -2,6 +2,7 @@ import React, { memo, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
+import LoginPage from "./pages/login";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createCustomTheme } from "./theme";
 
@@ -11,16 +12,16 @@ const App: React.FC<{}> = memo(() => {
     responsiveFontSizes: true,
   });
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    // <ThemeProvider theme={theme}>
+    //   <CssBaseline />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="product/:productId" element={<ProductPage />}></Route>
-          <Route path="*" element={<div>404</div>} />
+          <Route path="/login" element={<LoginPage />}></Route>
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 });
 

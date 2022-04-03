@@ -1,39 +1,28 @@
 pipeline {
-  agent {
-    kubernetes {
-      yaml '''
-        apiVersion: v1
-        kind: Pod
-        metadata:
-          name: kaniko-pg-web
-          namespace: pg-dev
-        spec:
-          containers:
-          - name: kaniko-pg-web
-            image: gcr.io/kaniko-project/executor:latest
-            args: ["--context=git://github.com/project-ginza/web",
-                    "--destination=mgood2/pg-web"]
-            volumeMounts:
-              - name: kaniko-secret
-                mountPath: /kaniko/.docker
-          restartPolicy: Never
-          volumes:
-            - name: kaniko-secret
-              secret:
-                secretName: docker-credentials
-                items:
-                  - key: .dockerconfigjson
-                    path: config.json
-        '''
-    }
-  }
-  stages {
-    stage('restart container'){
-      steps {
-        container('kaniko-pg-web') {
-          sleep 300
+    agent any
+    stages{
+        stage('build with kaniko'){
+            steps {
+                withKubeCredentials([
+                    [credentialsId: 'jenkins-robot', namespace:'pg-dev']
+                    ]){
+                    sh 'uname -a'
+                    sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+                    sh 'chmod u+x ./kubectl'  
+                    sh './kubectl apply -f kaniko.yaml'
+                    sh 'sleep 400'
+                    sh './kubectl delete pod \$(./kubectl get pods -n pg-dev | grep Completed | awk \'{print $1}\')'
+                }
+            }
         }
-      }
+        stage('run kubectl'){
+            steps {
+                withKubeCredentials([
+                    [credentialsId: 'jenkins-robot', namespace:'pg-dev']
+                    ]){
+                    sh './kubectl rollout restart -n pg-dev deployment pg-deployment-web'
+                }
+            }
+        }
     }
-  }
 }
