@@ -1,20 +1,21 @@
-import React from 'react';
-import * as yup from 'yup';
-import { Formik,ErrorMessage  } from 'formik';
+import React from "react";
+import * as yup from "yup";
+import {Formik, ErrorMessage} from "formik";
 
 const LoginPage = () => {
-  
   const validationSchema = yup.object({
     email: yup.string().email().required(),
-    password: yup.string().min(6,'password must be at least 6 characters').required(),
+    password: yup
+      .string()
+      .min(6, "password must be at least 6 characters")
+      .required(),
   });
 
-  
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{email: "", password: ""}}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, {setSubmitting}) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
